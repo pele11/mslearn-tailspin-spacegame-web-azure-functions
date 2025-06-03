@@ -56,13 +56,13 @@ stages:
       inputs:
         command: 'build'
         arguments: '--no-restore --configuration $(buildConfiguration)'
-        projects: '**/*.csproj'
+        projects: '**/Tailspin.SpaceGame.Web/*.csproj'
 
     - task: DotNetCoreCLI@2
       displayName: 'Publish the project - $(buildConfiguration)'
       inputs:
         command: 'publish'
-        projects: '**/*.csproj'
+        projects: '**/Tailspin.SpaceGame.Web/*.csproj'
         publishWebProjects: false
         arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
         zipAfterPublish: true
